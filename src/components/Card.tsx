@@ -23,7 +23,7 @@ export function Card({title, link, type}: CardProps) {
                         </a>
                     </div>
                     <div className="text-gray-500">
-                        <ShareIcon />
+                        <ShareIcon/>
                     </div>
                 </div>
             </div>
