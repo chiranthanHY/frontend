@@ -58,7 +58,7 @@ export function CreateContentModal({ open, onClose }: ModalProps) {
                 {/* Close Button */}
                 <div className="flex justify-end">
                     <button onClick={onClose} className="cursor-pointer">
-                        <CrossIcon />
+                        <CrossIcon onClick={onClose} />
                     </button>
                 </div>
 
@@ -75,13 +75,13 @@ export function CreateContentModal({ open, onClose }: ModalProps) {
                                 text="YouTube"
                                 variant={type === ContentType.Youtube ? "primary" : "secondary"}
                                 onClick={() => setType(ContentType.Youtube)}
-                                startIcon={null} // Pass null or optional prop
+                                startIcon={undefined} // Pass undefined or optional prop
                             />
                             <Button
                                 text="Twitter"
                                 variant={type === ContentType.Twitter ? "primary" : "secondary"}
                                 onClick={() => setType(ContentType.Twitter)}
-                                startIcon={null} // Pass null or optional prop
+                                startIcon={undefined} // Pass undefined or optional prop
                             />
                         </div>
                     </div>
@@ -92,7 +92,7 @@ export function CreateContentModal({ open, onClose }: ModalProps) {
                             onClick={addContent}
                             variant="primary"
                             text="Submit"
-                            startIcon={null} // Ensure consistency
+                            startIcon={undefined} // Pass undefined or optional prop
                         />
                     </div>
                 </div>

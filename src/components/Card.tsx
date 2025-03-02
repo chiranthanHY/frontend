@@ -1,4 +1,9 @@
+import { CrossIcon } from "../icons/CrossIcon";
 import { ShareIcon } from "../icons/ShareIcon";
+import { YoutubeIcon } from "../icons/YoutubeIcon"; // Import YoutubeIcon
+
+import { TwitterIcon } from "../icons/TwitterIcon"; // Import TwitterIcon
+
 
 interface CardProps {
     title: string;
@@ -6,24 +11,43 @@ interface CardProps {
     type: "twitter" | "youtube";
 }
 
-export function Card({title, link, type}: CardProps) {
+import { useState } from "react";
+
+export function Card({ title, link, type }: CardProps) {
+    const [isVisible, setIsVisible] = useState(true);
+
+    const handleClose = () => {
+        console.log("CrossIcon clicked"); // Debugging log
+        setIsVisible(false);
+    };
+
+
+    if (!isVisible) return null;
+
+
     return <div>
         <div className="p-4 bg-white rounded-md border-gray-200 max-w-72  border min-h-48 min-w-72">
             <div className="flex justify-between">
                 <div className="flex items-center text-md">
                     <div className="text-gray-500 pr-2">
-                        <ShareIcon />
+                        {type === "youtube" ? <YoutubeIcon /> : <TwitterIcon />} 
+
                     </div>
+
+
                     {title}
+
                 </div>
                 <div className="flex items-center">
                     <div className="pr-2 text-gray-500">
-                        <a href={link} target="_blank">
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+
                             <ShareIcon />
                         </a>
                     </div>
                     <div className="text-gray-500">
-                        <ShareIcon/>
+                        <CrossIcon onClick={handleClose} />
+
                     </div>
                 </div>
             </div>
